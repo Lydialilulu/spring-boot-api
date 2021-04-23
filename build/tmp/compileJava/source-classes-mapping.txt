@@ -1,0 +1,8 @@
+com/lydia/ThemeParkApplication.java
+ com.lydia.ThemeParkApplication
+com/lydia/entity/ThemeParkRide.java
+ com.lydia.entity.ThemeParkRide
+com/lydia/repository/ThemeParkRideRepository.java
+ com.lydia.repository.ThemeParkRideRepository
+com/lydia/controller/ThemeParkRideController.java
+ com.lydia.controller.ThemeParkRideController
