@@ -7,6 +7,8 @@ plugins {
     id 'com.palantir.docker-run' version '0.25.0'
 }
 
+version = scmVersion.version
+
 String imageName = "Lydialilulu/spring-boot-api:$version"
 
 docker {
@@ -37,5 +39,3 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
-project.version = scmVersion.version
