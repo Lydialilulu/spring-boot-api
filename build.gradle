@@ -9,14 +9,6 @@ plugins {
 
 version = scmVersion.version
 
-String imageName = "Lydialilulu/spring-boot-api:$version"
-
-docker {
-    name imageName
-    files "build/libs/${bootJar.archiveFileName.get()}"
-    buildArgs([JAR_FILE: bootJar.archiveFileName.get()])
-}
-
 repositories {
     mavenCentral()
     jcenter()
@@ -38,4 +30,19 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+String imageName = "lydialilulu/spring-boot-api:$version"
+
+docker {
+    name imageName
+    files "build/libs/${bootJar.archiveFileName.get()}"
+    buildArgs([JAR_FILE: bootJar.archiveFileName.get()])
+}
+
+dockerRun {
+    name project.name
+    image imageName
+    ports '8080:8080'
+    clean true
 }
