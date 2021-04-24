@@ -7,6 +7,14 @@ plugins {
     id 'com.palantir.docker-run' version '0.25.0'
 }
 
+String imageName = "Lydialilulu/spring-boot-api:$version"
+
+docker {
+    name imageName
+    files "build/libs/${bootJar.archiveFileName.get()}"
+    buildArgs([JAR_FILE: bootJar.archiveFileName.get()])
+}
+
 repositories {
     mavenCentral()
     jcenter()
