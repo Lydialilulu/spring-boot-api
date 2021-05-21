@@ -5,6 +5,18 @@ pipeline {
         pollSCM '* * * * *'
     }
     stages {
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh "./gradlew sonarqube"
+                }
+            }
+        }
+        stage('Quality Gate') {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
         stage('Build') {
             steps {
                 sh './gradlew assemble'
