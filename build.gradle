@@ -38,6 +38,7 @@ test {
 sonarqube {
     properties {
         property 'sonar.host.url', 'http://localhost:9000'
+        property 'sonar.login', 'a1e2bbdacf204b5ec97b58110f035e8e128f83a4'
     }
 }
 
